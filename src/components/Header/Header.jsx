@@ -1,25 +1,31 @@
-import "./Header.scss"; 
+import "./Header.scss";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <header className="header">
-
       <div className="logo-container">
-        <img
-          src="https://static.cdnlogo.com/logos/m/6/microsoft.svg"
-          alt="Microsoft Logo"
-          className="logo"
-        />
+        <Link to="/" >
+          <img
+            src="https://static.cdnlogo.com/logos/m/6/microsoft.svg"
+            alt="Microsoft Logo"
+            className="logo"
+          />
+        </Link>
       </div>
 
       <nav className="nav-links">
-        <a href="/" className="nav-link">
+        <Link to="/play" className="header__link">
+        <p className="nav-link">
           Play The Game
-        </a>
+        </p>
+        </Link>
         <span className="divider">|</span>
-        <a href="/about" className="nav-link">
+        <Link to="/feedback" className="header__link">
+        <p className="nav-link">
           Let Us Help
-        </a>
+        </p>
+        </Link>
       </nav>
     </header>
   );

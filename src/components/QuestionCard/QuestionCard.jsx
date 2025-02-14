@@ -82,6 +82,7 @@ function QuestionCard({ score, updateScore }) {
   return (
     <>
       <Header /> 
+      <div className="question-wrapper">
     <section className={`question-card ${flipped ? "flipped" : ""}`}>
       <div className="question-card__inner">
         {!flipped ? (
@@ -136,7 +137,7 @@ function QuestionCard({ score, updateScore }) {
         )}
       </section>
       <Animation score={score} />
-
+      </div>
       <Footer />
     </>
   );

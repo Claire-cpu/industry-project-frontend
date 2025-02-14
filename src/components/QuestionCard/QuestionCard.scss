@@ -2,12 +2,18 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
+.question-wrapper {
+  animation: formAnimation 10s infinite alternate ease-in-out;
+  padding-top: 5rem;
+}
+
 .question-card {
   perspective: 1000px;
   position: relative;
   width: 50%;
   height: 500px;
   margin: auto;
+  background-color: white;
 
   &__inner {
     position: relative;
@@ -115,7 +121,7 @@
     cursor: pointer;
     padding: 0.5rem 1rem;
     text-align: center;
-    width: 100%;
+    width: 60%;
     border: 1px solid #0078d4;
     background-color: #0078d4;
     color: white;
@@ -133,4 +139,22 @@
 
 .question-card.flipped .question-card__inner {
   transform: rotateY(180deg);
+}
+
+@keyframes gameAnimation {
+  0% {
+    background: linear-gradient(135deg, #f8e2e7, #e2f8f5);
+  }
+  25% {
+    background: linear-gradient(135deg, #e2f8f5, #e2e8f8);
+  }
+  50% {
+    background: linear-gradient(135deg, #e2e8f8, #f8f2e2);
+  }
+  75% {
+    background: linear-gradient(135deg, #f8f2e2, #f8e2e7);
+  }
+  100% {
+    background: linear-gradient(135deg, #f8e2e7, #e2f8f5);
+  }
 }
