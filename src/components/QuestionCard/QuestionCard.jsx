@@ -1,19 +1,24 @@
-import { useState, useEffect } from "react";
-import "./QuestionCard.scss";
-import Timer from "../Timer/Timer";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import Timer from "../Timer/Timer";
+import "./QuestionCard.scss";
 import AnswerModal from "../../components/AnswerModal/AnswerModal";
+import Animation from "../Animation/Animation";
+
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const baseURL = import.meta.env.VITE_API_URL;
 
-function QuestionCard() {
+function QuestionCard({ score, updateScore }) {
+
   const [selected, setSelected] = useState(null);
   const [flipped, setFlipped] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
   const [answered, setAnswered] = useState(false);
-  const [score, setScore] = useState(0);
+  // const [score, setScore] = useState(0);
   const [isCorrect, setIsCorrect] = useState(null);
   const [correctAnswer, setCorrectAnswer] = useState("");
 
@@ -28,15 +33,15 @@ function QuestionCard() {
     setCorrectAnswer(currentQuestion.correct_answer);
 
     if (correct) {
-      setScore((prevScore) => prevScore + 1);
+      updateScore(score + 1); // 부모 컴포넌트(App)에서 상태 업데이트
     }
   };
 
   const handleNext = () => {
     if (flipped) {
-      loadRandomQuestion(questions);
+      loadRandomQuestion(questions); // Load next question
     } else {
-      setFlipped(true);
+      setFlipped(true); // Flip the card
     }
     setIsCorrect(null);
     setCorrectAnswer("");
@@ -49,7 +54,7 @@ function QuestionCard() {
         setQuestions(response.data);
         loadRandomQuestion(response.data);
       } catch (error) {
-        console.error("Error fetching all questions:", error);
+        console.error("Error fetching questions:", error);
       }
     };
     getAllQuestions();
@@ -75,6 +80,8 @@ function QuestionCard() {
   };
 
   return (
+    <>
+      <Header /> 
     <section className={`question-card ${flipped ? "flipped" : ""}`}>
       <div className="question-card__inner">
         {!flipped ? (
@@ -115,19 +122,23 @@ function QuestionCard() {
         )}
       </div>
 
-      <div className="question-card__next-wrapper">
-        <button className="question-card__next" onClick={handleNext}>
-          {flipped ? "Next" : "Ready?"}
-        </button>
-      </div>
-      {isCorrect !== null && (
-        <AnswerModal
-          isCorrect={isCorrect}
-          correctAnswer={correctAnswer}
-          onClose={handleCloseModal}
-        />
-      )}
-    </section>
+        <div className="question-card__next-wrapper">
+          <button className="question-card__next" onClick={handleNext}>
+            {flipped ? "Next" : "Ready?"}
+          </button>
+        </div>
+        {isCorrect !== null && (
+          <AnswerModal
+            isCorrect={isCorrect}
+            correctAnswer={correctAnswer}
+            onClose={handleCloseModal}
+          />
+        )}
+      </section>
+      <Animation score={score} />
+
+      <Footer />
+    </>
   );
 }
 
