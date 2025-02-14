@@ -6,7 +6,7 @@
   inset: 0;
   position: fixed;
   display: flex;
-  background: $gradient-bg;
+  background: white;
 
   @include tablet {
     justify-content: center;
@@ -24,10 +24,11 @@
     justify-content: flex-start;
 
     @include tablet {
-      background: $gradient-bg;
+      background: white;
       width: 28.125rem;
       min-height: 38.5rem;
-      border-radius: 1rem;
+      max-height: 40rem;
+      border-radius: 6px;
     }
   }
 
@@ -41,12 +42,12 @@
 
   &__body {
     width: 100%;
-    background: rgb(216, 243, 252);
-    border-radius: 1rem;
+    border: 1px solid #616161;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 1rem;
+    border-radius: 6px;
   }
   &__header {
     font-size: 1rem;

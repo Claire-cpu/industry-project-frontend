@@ -4,6 +4,8 @@ import rocket from "../../assets/icons/rocket.svg";
 import landing from "../../assets/icons/landing.svg";
 import correct from "../../data/correct.json";
 import incorrect from "../../data/incorrect.json";
+import React from "react";
+import ReactDOM from "react-dom";
 
 import "./AnswerModal.scss";
 
@@ -18,7 +20,7 @@ function AnswerModal({ isCorrect, correctAnswer, onClose }) {
     setMessage(randomMessage);
   }, [isCorrect]);
 
-  return (
+  return ReactDOM.createPortal(
     <div className="modal">
       <div className="modal__content">
         <button className="modal__close" onClick={onClose}>
@@ -47,7 +49,8 @@ function AnswerModal({ isCorrect, correctAnswer, onClose }) {
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.getElementById("modal-root")
   );
 }
 
