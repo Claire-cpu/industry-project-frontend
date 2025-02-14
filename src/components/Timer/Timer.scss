@@ -1,0 +1,14 @@
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0078d4;
+    margin-bottom: 2rem;
+  }
+  
+  .timer__icon {
+    height: 2rem;
+  }

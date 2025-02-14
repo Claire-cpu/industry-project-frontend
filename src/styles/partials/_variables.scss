@@ -1,0 +1,117 @@
+$tablet-breakpoint: 48rem;
+$desktop-breakpoint: 80rem;
+
+$gradient-bg: linear-gradient(
+  180deg,
+  rgba(2, 0, 36, 1) 0%,
+  rgba(9, 9, 121, 1) 35%,
+  rgba(0, 212, 255, 1) 100%
+);
+$secondary-cloud: #bdc5d5;
+
+$font-weight-default: 400;
+$font-weight-semibold: 600;
+
+$h1-font-size: 1.75rem;
+$h1-line-height: 2.25rem;
+
+$h2-font-size: 1.25rem;
+$h2-line-height: 1.75rem;
+
+$h3-font-size: 0.8125rem;
+$h3-line-height: 1.25rem;
+
+$h4-font-size: 0.6875rem;
+$h4-line-height: 1rem;
+
+$p-font-large: 0.9375rem;
+$p-large-line-height: 1.625rem;
+
+$p-font-medium: 0.8125rem;
+$p-medium-line-height: 1.25rem;
+
+$p-font-small: 0.6875rem;
+$p-small-line-height: 1rem;
+
+$h1-font-size-td: 2rem;
+$h1-line-height-td: 2.5rem;
+
+$h2-font-size-td: 1.5rem;
+$h2-line-height-td: 2rem;
+
+$h3-font-size-td: 0.875rem;
+$h3-line-height-td: 1.375rem;
+
+$h4-font-size-td: 0.75rem;
+$h4-line-height-td: 1.125rem;
+
+$p-font-large-td: 1rem;
+$p-large-line-height-td: 1.75rem;
+
+$p-font-medium-td: 0.875rem;
+$p-medium-line-height-td: 1.375rem;
+
+$p-font-small-td: 0.75rem;
+$p-small-line-height-td: 1.125rem;
+
+$gap-default: 0.25rem;
+$padding-margin-default: 0.5rem;
+$padding-cta-left-right: 1rem;
+
+$border-radius-default: 1.25rem;
+$cta-height-mobile: 2.25rem;
+$cta-height-td: 2.375rem;
+
+$divider: 0.0625rem solid $secondary-cloud;
+
+// Colors
+$primary: #0078d4;
+$dark-grey: #242424;
+$white: #ffffff;
+$light-blue: #ebf3fc;
+$grey: #ebf3fc;
+$light-grey: #f5f5f5;
+
+// Success/Error
+$green: #9fd89f;
+$pink: #eeacb2;
+$light-green: #f1faf1;
+$light-pink: #fdf3f4;
+
+// Fonts
+$font-family: "Segoe UI", sans-serif;
+$font-header: 32px;
+$font-subheader: 24px;
+$font-body: 16px;
+$font-small: 14px;
+
+// Font Weights
+$fw-bold: 700;
+$fw-semi-bold: 600;
+$fw-regular: 400;
+
+// Colors
+$primary: #0078d4;
+$dark-grey: #242424;
+$white: #ffffff;
+$light-blue: #ebf3fc;
+$grey: #ebf3fc;
+$light-grey: #f5f5f5;
+
+// Success/Error
+$green: #9fd89f;
+$pink: #eeacb2;
+$light-green: #f1faf1;
+$light-pink: #fdf3f4;
+
+// Fonts
+$font-family: "Segoe UI", sans-serif;
+$font-header: 32px;
+$font-subheader: 24px;
+$font-body: 24px;
+$font-small: 14px;
+
+// Font Weights
+$fw-bold: 700;
+$fw-semi-bold: 600;
+$fw-regular: 400;

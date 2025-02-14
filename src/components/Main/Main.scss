@@ -1,0 +1,27 @@
+@keyframes backgroundAnimation {
+  0% {
+    background: linear-gradient(135deg, #f8e2e7, #e2f8f5);
+  }
+  25% {
+    background: linear-gradient(135deg, #e2f8f5, #e2e8f8);
+  }
+  50% {
+    background: linear-gradient(135deg, #e2e8f8, #f8f2e2);
+  }
+  75% {
+    background: linear-gradient(135deg, #f8f2e2, #f8e2e7);
+  }
+  100% {
+    background: linear-gradient(135deg, #f8e2e7, #e2f8f5);
+  }
+}
+
+.main {
+  animation: backgroundAnimation 10s infinite alternate ease-in-out;
+  height: 100vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5rem;
+}
