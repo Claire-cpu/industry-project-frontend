@@ -1,23 +1,20 @@
-import { useState, useEffect } from "react";
-import "./QuestionCard.scss";
-import Timer from "../Timer/Timer";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import Timer from "../Timer/Timer";
+import "./QuestionCard.scss";
 import AnswerModal from "../../components/AnswerModal/AnswerModal";
 
 const baseURL = import.meta.env.VITE_API_URL;
 
-function QuestionCard() {
+function QuestionCard({ score, updateScore }) {
   const [selected, setSelected] = useState(null);
   const [flipped, setFlipped] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
   const [answered, setAnswered] = useState(false); // Prevent multiple selections
-  const [score, setScore] = useState(0); // Accumulate correct answers score
   const [isCorrect, setIsCorrect] = useState(null);
   const [correctAnswer, setCorrectAnswer] = useState("");
-
-  // const handleFlip = () => setFlipped(true);
 
   const handleSelect = (index) => {
     if (answered) return; // Prevent multiple selections
@@ -30,15 +27,15 @@ function QuestionCard() {
     setCorrectAnswer(currentQuestion.correct_answer);
 
     if (correct) {
-      setScore((prevScore) => prevScore + 1);
+      updateScore(score + 1); // 부모 컴포넌트(App)에서 상태 업데이트
     }
   };
 
   const handleNext = () => {
     if (flipped) {
-      loadRandomQuestion(questions);
+      loadRandomQuestion(questions); // Load next question
     } else {
-      setFlipped(true);
+      setFlipped(true); // Flip the card
     }
     setIsCorrect(null);
     setCorrectAnswer("");
@@ -51,7 +48,7 @@ function QuestionCard() {
         setQuestions(response.data);
         loadRandomQuestion(response.data);
       } catch (error) {
-        console.error("Error fetching all questions:", error);
+        console.error("Error fetching questions:", error);
       }
     };
     getAllQuestions();
@@ -67,7 +64,7 @@ function QuestionCard() {
       )
     );
     setSelected(null);
-    setAnswered(false); // Reset selection lock
+    setAnswered(false);
     setFlipped(false);
   };
 
@@ -79,7 +76,6 @@ function QuestionCard() {
   return (
     <section className={`question-card ${flipped ? "flipped" : ""}`}>
       <div className="question-card__inner">
-        {/* Display Score */}
         <div className="question-card__score">
           <strong>Score:</strong> {score}
         </div>
@@ -105,7 +101,7 @@ function QuestionCard() {
                         ? "question-card__item--correct"
                         : "question-card__item--incorrect"
                       : ""
-                  } ${answered ? "question-card__item--disabled" : ""}`} // Add disabled styling
+                  } ${answered ? "question-card__item--disabled" : ""}`}
                   onClick={() => handleSelect(index)}
                 >
                   {answer}
