@@ -8,7 +8,7 @@ function CarouselItem({ story }) {
       <img className="carousel-item__img" src={`${API_URL}${story.photo}`} />
       <section className="carousel-item__wrapper">
         <div className="carousel-item__content-wrapper">
-          <h2 className="carousel-item__title">{story.company}y Title</h2>
+          <h2 className="carousel-item__title">{story.company}</h2>
           <p className="carousel-item__content">{story.story}</p>
         </div>
         <a href={story.url}>

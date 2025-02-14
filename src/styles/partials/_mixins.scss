@@ -38,3 +38,32 @@
     line-height: $p-small-line-height-td;
   }
 }
+
+// Typography Mixins
+@mixin header {
+  font-family: $font-family;
+  font-size: $font-header;
+  font-weight: $fw-bold;
+  color: $dark-grey;
+}
+
+@mixin subheader {
+  font-family: $font-family;
+  font-size: $font-subheader;
+  font-weight: $fw-semi-bold;
+  color: $dark-grey;
+}
+
+@mixin body-text {
+  font-family: $font-family;
+  font-size: $font-body;
+  font-weight: $fw-regular;
+  color: $grey;
+}
+
+@mixin small-text {
+  font-family: $font-family;
+  font-size: $font-small;
+  font-weight: $fw-regular;
+  color: $grey;
+}
