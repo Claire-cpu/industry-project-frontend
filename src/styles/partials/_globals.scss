@@ -1,5 +1,7 @@
 @use "./variables" as *;
 @use "./mixins" as *;
+@use "./typography" as *;
+
 
 *,
 *::before,
@@ -7,4 +9,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
 }
