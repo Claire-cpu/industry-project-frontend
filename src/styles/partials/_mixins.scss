@@ -11,3 +11,30 @@
     @content;
   }
 }
+
+@mixin p1 {
+  font-size: $p-font-large;
+  line-height: $p-large-line-height;
+  @include tablet {
+    font-size: $p-font-large-td;
+    line-height: $p-large-line-height-td;
+  }
+}
+
+@mixin p2 {
+  font-size: $p-font-medium;
+  line-height: $p-medium-line-height;
+  @include tablet {
+    font-size: $p-font-medium-td;
+    line-height: $p-medium-line-height-td;
+  }
+}
+
+@mixin p3 {
+  font-size: $p-font-small;
+  line-height: $p-small-line-height;
+  @include tablet {
+    font-size: $p-font-small-td;
+    line-height: $p-small-line-height-td;
+  }
+}

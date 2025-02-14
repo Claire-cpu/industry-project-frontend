@@ -1,26 +1,40 @@
 import { Carousel } from "antd";
-const contentStyle = {
-  height: "160px",
-  color: "#fff",
-  lineHeight: "160px",
-  textAlign: "center",
-  background: "#364d79",
-};
+import CarouselItem from "../CarouselItem/CarouselItem";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 function CarouselComponent() {
+  const [stories, setStories] = useState([]);
+  const API_URL = import.meta.env.VITE_API_URL;
+
+  async function fetchStories() {
+    try {
+      const response = await axios.get(`${API_URL}/api/success`);
+      setStories(response.data);
+      console.log("fetche stories are: ", response.data);
+    } catch (error) {
+      console.error("Error fetching inventories:", error);
+    }
+  }
+
+  useEffect(() => {
+    fetchStories();
+  }, []);
+
+  if (!stories) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <Carousel autoplay>
-      <div>
-        <h3 style={contentStyle}>1</h3>
-      </div>
-      <div>
-        <h3 style={contentStyle}>2</h3>
-      </div>
-      <div>
-        <h3 style={contentStyle}>3</h3>
-      </div>
-      <div>
-        <h3 style={contentStyle}>4</h3>
-      </div>
+      {stories.map((story) => {
+        return (
+          <div key={story.id}>
+            {" "}
+            <CarouselItem story={story} />
+          </div>
+        );
+      })}
     </Carousel>
   );
 }

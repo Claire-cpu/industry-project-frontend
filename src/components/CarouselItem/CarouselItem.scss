@@ -1,0 +1,76 @@
+@use "../../styles/partials/_globals.scss" as *;
+@use "../../styles/partials/_variables.scss" as *;
+@use "../../styles/partials/_mixins.scss" as *;
+.carousel-item {
+  height: auto;
+  color: #242424;
+  line-height: 160px;
+  text-align: center;
+  background-color: #ebf3fc;
+  margin: 0 1rem;
+  padding: 0 1rem;
+  @include desktop {
+    padding: 0 15rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+    @include tablet {
+      max-height: 450px;
+    }
+  }
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    @include desktop {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-end;
+    }
+  }
+  &__content-wrapper {
+    width: 66%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  &__title {
+    line-height: $h2-line-height;
+    font-size: $h2-font-size;
+    text-align: left;
+    @include tablet {
+      font-size: $h2-font-size-td;
+      line-height: $h2-line-height-td;
+    }
+  }
+  &__content {
+    @include p1;
+    line-height: 1.2rem;
+    text-align: left;
+    @include tablet {
+      font-size: $h2-font-size-td;
+      @include p2;
+    }
+  }
+  &__button {
+    background-color: #0078d4;
+    color: white;
+  }
+}
+
+.slick-dots li button {
+  background-color: #002746 !important; /* Change this to your desired color */
+  width: 12px;
+  height: 30px;
+  border-radius: 50%;
+  opacity: 1;
+}
