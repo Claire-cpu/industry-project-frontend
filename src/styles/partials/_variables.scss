@@ -1,6 +1,13 @@
 $tablet-breakpoint: 48rem;
 $desktop-breakpoint: 80rem;
 
+$gradient-bg: linear-gradient(
+  180deg,
+  rgba(2, 0, 36, 1) 0%,
+  rgba(9, 9, 121, 1) 35%,
+  rgba(0, 212, 255, 1) 100%
+);
+
 // Colors
 $primary: #0078d4;
 $dark-grey: #242424;
