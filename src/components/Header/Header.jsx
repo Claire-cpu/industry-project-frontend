@@ -1,16 +1,28 @@
-import "./Header.scss";
+import "./Header.scss"; 
 
-function Header() {
+const Header = () => {
   return (
     <header className="header">
-      <a href="https://www.microsoft.com/en-ca/" target={"_blank"}>
+
+      <div className="logo-container">
         <img
-          className="header__logo"
-          src="https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png"
+          src="https://static.cdnlogo.com/logos/m/6/microsoft.svg"
+          alt="Microsoft Logo"
+          className="logo"
         />
-      </a>
+      </div>
+
+      <nav className="nav-links">
+        <a href="/" className="nav-link">
+          Play The Game
+        </a>
+        <span className="divider">|</span>
+        <a href="/about" className="nav-link">
+          Let Us Help
+        </a>
+      </nav>
     </header>
   );
-}
+};
 
 export default Header;
