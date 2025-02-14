@@ -3,7 +3,7 @@ import "./QuestionCard.scss";
 import Timer from "../Timer/Timer";
 import axios from "axios";
 
-const baseURL = "http://localhost:3000";
+const baseURL = import.meta.env.VITE_API_URL;
 
 function QuestionCard() {
   const [selected, setSelected] = useState(null);
