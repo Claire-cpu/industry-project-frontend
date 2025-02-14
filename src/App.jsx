@@ -1,5 +1,5 @@
 import "./App.scss";
-import "./styles/_globals.scss"; 
+import "./styles/partials/_globals.scss";
 import QuestionCard from "./components/QuestionCard/QuestionCard";
 import Main from "./components/Main/Main";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
