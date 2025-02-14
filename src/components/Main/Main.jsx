@@ -4,13 +4,14 @@ import Footer from "../Footer/Footer";
 import QuestionCard from "../QuestionCard/QuestionCard";
 import Help from "../Help/Help";
 import Play from "../Play/Play";
-
+import CarouselComponent from "../Carousel/CarouselComponent";
 function Main() {
   return (
     <>
-      <Header />
+      <CarouselComponent />
       <main className="main">
         {/*  <QuestionCard /> */}
+
         <Play />
         <Help />
       </main>

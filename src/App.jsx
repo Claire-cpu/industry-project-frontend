@@ -7,7 +7,7 @@ import Main from "./components/Main/Main";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FeedbackPage from "./pages/FeedbackPage/FeedbackPage";
 import Header from "./components/Header/Header";
-import CarouselComponent from "./components/Carousel/CarouselComponent";
+
 function App() {
   const [score, setScore] = useState(0); // Lifted score state
 
