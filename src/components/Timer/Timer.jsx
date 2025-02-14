@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { TimerIcon } from "lucide-react";
-import "./Timer.scss"
+import "./Timer.scss";
 
 function Timer({ duration = 30, onEnd }) {
   const [timeLeft, setTimeLeft] = useState(duration);
 
   useEffect(() => {
     if (timeLeft <= 0) {
-      if (onEnd) onEnd(); 
+      if (onEnd) onEnd();
       return;
     }
     const timer = setInterval(() => {
