@@ -80,9 +80,7 @@ function QuestionCard() {
     <section className={`question-card ${flipped ? "flipped" : ""}`}>
       <div className="question-card__inner">
         {/* Display Score */}
-        <div className="question-card__score">
-          <strong>Score:</strong> {score}
-        </div>
+        
 
         {!flipped ? (
           <div className="question-card__front">
@@ -91,6 +89,9 @@ function QuestionCard() {
           </div>
         ) : (
           <div className="question-card__back">
+            <div className="question-card__score">
+          <strong>Score: {score}</strong> 
+        </div>
             <Timer duration={30} onEnd={() => alert("Time's Up!")} />
             <p className="question-card__question">
               {currentQuestion?.question}
