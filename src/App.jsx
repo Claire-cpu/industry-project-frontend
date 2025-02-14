@@ -6,7 +6,7 @@ import QuestionCard from "./components/QuestionCard/QuestionCard";
 import Main from "./components/Main/Main";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FeedbackPage from "./pages/FeedbackPage/FeedbackPage";
-import Header from "./components/Header/Header"; 
+import Header from "./components/Header/Header";
 
 function App() {
   const [score, setScore] = useState(0); // Lifted score state
@@ -32,4 +32,3 @@ function App() {
 }
 
 export default App;
-
