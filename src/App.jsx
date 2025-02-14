@@ -11,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/feedback" element={<FeedbackPage />} />
+          <Route path="/play" element={<QuestionCard />} />
         </Routes>
       </BrowserRouter>
     </div>
