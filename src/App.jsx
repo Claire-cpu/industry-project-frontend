@@ -1,8 +1,12 @@
 import "./App.scss";
-import QuestionCard from "./components/QuestionCard/QuestionCard"
+import QuestionCard from "./components/QuestionCard/QuestionCard";
 
 function App() {
-  return <>hello</>;
+  return (
+    <>
+      <QuestionCard />
+    </>
+  );
 }
 
 export default App;

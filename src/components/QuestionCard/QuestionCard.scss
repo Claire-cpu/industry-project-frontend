@@ -1,108 +1,112 @@
 .question-card {
-    perspective: 1000px;
+  perspective: 1000px;
+  position: relative;
+  width: 50%;
+  height: 500px;
+  margin: auto;
+
+  &__inner {
     position: relative;
-    width: 50%;
-    height: 500px;
-    margin: auto;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
 
-    &__inner {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        transition: transform 0.6s;
-        transform-style: preserve-3d;
-    }
-    
-    &__front {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        backface-visibility: hidden;
-        border: 1px solid #deecf9;
-        box-shadow: 1px 1px 1px 1px #eff6fc;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+  &__front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 1px solid #deecf9;
+    box-shadow: 1px 1px 1px 1px #eff6fc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-    &__back {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        backface-visibility: hidden;
-        border: 2px solid #deecf9;
-        box-shadow: 1px 1px 1px 1px #f3f2f1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    &__back {
-        transform: rotateY(180deg);
-        display: flex;
-        justify-content: center;
-        padding: 1rem;
-    }
+  &__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 2px solid #deecf9;
+    box-shadow: 1px 1px 1px 1px #f3f2f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-    &__hint {
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        margin: 0 auto;
-        padding: 1rem;
-    }
+  &__back {
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+  }
 
-    &__question {
-        padding: 2rem 0;
-        display: flex;
-        height: 30%;
-        text-align: center;
-    }
+  &__hint {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1rem;
+  }
 
-    &__list {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    &__item {
-        list-style-type: none;
-        cursor: pointer;
-        padding: 0.5rem 1rem;
-        text-align: center;
-        min-width: 200px;
-        border: 1px solid #0078d4;
+  &__question {
+    padding: 2rem 0;
+    display: flex;
+    height: 30%;
+    text-align: center;
+  }
 
-        &--correct {
-            border: 2px solid #81BC06;
-        }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
 
-        &--incorrect {
-            border: 2px solid #F35325;
-        }
-    }   
+  &__item {
+    list-style-type: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    min-width: 200px;
+    border: 1px solid #0078d4;
 
-    &__next {
-        cursor: pointer;
-        padding: 0.5rem 1rem;
-        text-align: center;
-        width: 100%;
-        border: 1px solid #0078d4;
-        background-color: #0078d4;
-        color: white;
+    &--correct {
+      border: 2px solid #81bc06;
     }
 
-    &__next-wrapper {
-        display: flex;
-        justify-content: center;
-        margin: 1rem;
+    &--incorrect {
+      border: 2px solid #f35325;
     }
+    &--disabled {
+      pointer-events: none;
+      opacity: 0.6;
+    }
+  }
+
+  &__next {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    width: 100%;
+    border: 1px solid #0078d4;
+    background-color: #0078d4;
+    color: white;
+  }
+
+  &__next-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+  }
 }
 
 .question-card.flipped .question-card__inner {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
