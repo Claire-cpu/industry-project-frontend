@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import "./QuestionCard.scss";
 import Timer from "../Timer/Timer";
 import axios from "axios";
+import AnswerModal from "../../components/AnswerModal/AnswerModal";
 
-const baseURL = "http://localhost:3000";
+const baseURL = import.meta.env.VITE_API_URL;
 
 function QuestionCard() {
   const [selected, setSelected] = useState(null);
@@ -13,6 +14,8 @@ function QuestionCard() {
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
   const [answered, setAnswered] = useState(false); // Prevent multiple selections
   const [score, setScore] = useState(0); // Accumulate correct answers score
+  const [isCorrect, setIsCorrect] = useState(null);
+  const [correctAnswer, setCorrectAnswer] = useState("");
 
   // const handleFlip = () => setFlipped(true);
 
@@ -22,9 +25,12 @@ function QuestionCard() {
     setSelected(index);
     setAnswered(true);
 
-    // Check if the selected answer is correct
-    if (shuffledAnswers[index] === currentQuestion.correct_answer) {
-      setScore((prevScore) => prevScore + 1); // Increase score for correct answers
+    const correct = shuffledAnswers[index] === currentQuestion.correct_answer;
+    setIsCorrect(correct);
+    setCorrectAnswer(currentQuestion.correct_answer);
+
+    if (correct) {
+      setScore((prevScore) => prevScore + 1);
     }
   };
 
@@ -34,6 +40,8 @@ function QuestionCard() {
     } else {
       setFlipped(true);
     }
+    setIsCorrect(null);
+    setCorrectAnswer("");
   };
 
   useEffect(() => {
@@ -61,6 +69,11 @@ function QuestionCard() {
     setSelected(null);
     setAnswered(false); // Reset selection lock
     setFlipped(false);
+  };
+
+  const handleCloseModal = () => {
+    setIsCorrect(null);
+    handleNext();
   };
 
   return (
@@ -108,6 +121,13 @@ function QuestionCard() {
           {flipped ? "Next" : "Ready?"}
         </button>
       </div>
+      {isCorrect !== null && (
+        <AnswerModal
+          isCorrect={isCorrect}
+          correctAnswer={correctAnswer}
+          onClose={handleCloseModal}
+        />
+      )}
     </section>
   );
 }
