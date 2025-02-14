@@ -12,28 +12,12 @@ const characterImages = [
 
 const years = [1997, 2005, 2012, 2018, 2024, "Future AI 🚀"];
 
-const Animation = () => {
-  const [score, setScore] = useState(0);
-  const characterIndex = Math.floor(score / 10); //change characters after 10 points
+const Animation = ({ score }) => {  
+  const characterIndex = Math.floor(score / 10); 
   const characterImage = characterImages[Math.min(characterIndex, characterImages.length - 1)];
-  const moveDistance = 14;
-
-  
-  useEffect(() => {
-    if (score >= 50) {
-      setScore(50);
-    }
-  }, [score]);
-
+  const moveDistance = 14; 
   return (
     <div className="game-container">
-      <button 
-        onClick={() => score < 50 && setScore(score + 1)}  //score can't go above 50
-        className="score-button"
-      >
-        Score: {score}
-      </button>
-
       <div className="track-container">
         <div className="track">
           {years.map((year, index) => (
@@ -45,7 +29,7 @@ const Animation = () => {
       </div>
       <div
         className="small-character"
-        style={{ transform: `translateX(${score * moveDistance}px)` }}
+        style={{ transform: `translateX(${score * moveDistance}px)` }} 
       >
         <img src={characterImage} alt="Small Character" />
       </div>
