@@ -8,6 +8,7 @@ import CarouselComponent from "../Carousel/CarouselComponent";
 function Main() {
   return (
     <>
+      <Header />
       <CarouselComponent />
       <main className="main">
         {/*  <QuestionCard /> */}
