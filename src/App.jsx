@@ -1,8 +1,11 @@
 import { useState } from "react";
-import Animation from "./components/Animation/Animation"; 
+import Animation from "./components/Animation/Animation";
 import "./App.scss";
-import "./styles/_globals.scss"; 
+import "./styles/partials/_globals.scss";
 import QuestionCard from "./components/QuestionCard/QuestionCard";
+import Main from "./components/Main/Main";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import FeedbackPage from "./pages/FeedbackPage/FeedbackPage";
 
 function App() {
   const [score, setScore] = useState(0); // Lifted score state
@@ -12,10 +15,18 @@ function App() {
   };
 
   return (
-    <>
-      <QuestionCard updateScore={updateScore} score={score} /> {/* Pass score and updateScore */}
-      <Animation score={score} /> {/* Pass score to Animation */}
-    </>
+    <div className="app">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/feedback" element={<FeedbackPage />} />
+          <Route
+            path="/play"
+            element={<QuestionCard updateScore={updateScore} score={score} />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

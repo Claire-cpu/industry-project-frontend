@@ -1,0 +1,24 @@
+.footer {
+  background-color: #ffffff;
+  padding: 2rem 1rem;
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  color: #616161;
+  font-family: "Segoe UI";
+
+  &__text {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-family: inherit;
+  }
+
+  &__link {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-family: inherit;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+}
