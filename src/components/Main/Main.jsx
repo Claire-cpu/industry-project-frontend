@@ -1,13 +1,14 @@
 import "./Main.scss";
-import Header from "../Header";
-import Footer from "../../Footer/Footer";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import QuestionCard from "../QuestionCard/QuestionCard";
 
 function Main() {
   return (
     <>
       <Header />
       <main className="main">
-        <h1>Welcome to AI trivia</h1>
+        <QuestionCard />
       </main>
       <Footer />
     </>

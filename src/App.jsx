@@ -1,7 +1,6 @@
 import "./App.scss";
-
-import Main from "./components/Header/Main/Main";
-
+import QuestionCard from "./components/QuestionCard/QuestionCard";
+import Main from "./components/Main/Main";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FeedbackPage from "./pages/FeedbackPage/FeedbackPage";
 
