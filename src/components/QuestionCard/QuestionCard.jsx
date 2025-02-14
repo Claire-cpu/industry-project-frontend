@@ -12,15 +12,13 @@ function QuestionCard() {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
-  const [answered, setAnswered] = useState(false); // Prevent multiple selections
-  const [score, setScore] = useState(0); // Accumulate correct answers score
+  const [answered, setAnswered] = useState(false);
+  const [score, setScore] = useState(0);
   const [isCorrect, setIsCorrect] = useState(null);
   const [correctAnswer, setCorrectAnswer] = useState("");
 
-  // const handleFlip = () => setFlipped(true);
-
   const handleSelect = (index) => {
-    if (answered) return; // Prevent multiple selections
+    if (answered) return;
 
     setSelected(index);
     setAnswered(true);
@@ -67,7 +65,7 @@ function QuestionCard() {
       )
     );
     setSelected(null);
-    setAnswered(false); // Reset selection lock
+    setAnswered(false);
     setFlipped(false);
   };
 
@@ -79,19 +77,19 @@ function QuestionCard() {
   return (
     <section className={`question-card ${flipped ? "flipped" : ""}`}>
       <div className="question-card__inner">
-        {/* Display Score */}
-        
-
         {!flipped ? (
           <div className="question-card__front">
-            <h2>Hint</h2>
+            <div className="question-card__score">
+              <strong>Score: {score}</strong>
+            </div>
+            <h2 className="question-card__hint-title">Hint</h2>
             <h3 className="question-card__hint">{currentQuestion?.hint}</h3>
           </div>
         ) : (
           <div className="question-card__back">
             <div className="question-card__score">
-          <strong>Score: {score}</strong> 
-        </div>
+              <strong>Score: {score}</strong>
+            </div>
             <Timer duration={30} onEnd={() => alert("Time's Up!")} />
             <p className="question-card__question">
               {currentQuestion?.question}
@@ -106,7 +104,7 @@ function QuestionCard() {
                         ? "question-card__item--correct"
                         : "question-card__item--incorrect"
                       : ""
-                  } ${answered ? "question-card__item--disabled" : ""}`} // Add disabled styling
+                  } ${answered ? "question-card__item--disabled" : ""}`}
                   onClick={() => handleSelect(index)}
                 >
                   {answer}
