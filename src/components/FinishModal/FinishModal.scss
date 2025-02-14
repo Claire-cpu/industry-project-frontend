@@ -2,7 +2,7 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.modal {
+.finish-modal {
   inset: 0;
   position: fixed;
   display: flex;
@@ -11,7 +11,8 @@
   @include tablet {
     justify-content: center;
     align-items: flex-start;
-    padding-top: 10vh;
+    padding-top: 7vh;
+    padding-bottom: 7vh;
     background: rgba(19, 24, 44, 0.7);
   }
 
@@ -22,11 +23,11 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-
+    align-items: center;
     @include tablet {
       background: $gradient-bg;
-      width: 28.125rem;
-      min-height: 38.5rem;
+      width: 800px;
+      height: 86vh;
       border-radius: 1rem;
     }
   }
@@ -52,10 +53,11 @@
   &__header {
     font-size: 1rem;
     line-height: 1.625rem;
-    font-weight: 400;
+    font-weight: 600;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0.5rem 0;
     @include tablet {
-      font-size: 1.125rem;
+      font-size: 1.25rem;
       line-height: 2rem;
     }
   }
@@ -70,7 +72,8 @@
       line-height: 2rem;
     }
   }
-  &__text {
+  &__text,
+  &__list-item {
     font-size: 0.875rem;
     font-weight: 400;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -79,21 +82,40 @@
       line-height: 1.25rem;
     }
   }
-
-  &__rocket {
+  &__list-item {
+    list-style: none;
+  }
+  &__trophy {
+    height: 400px;
+    width: 400px;
+  }
+  &__button {
+    margin-top: 1rem;
+    border-radius: 6px;
+    padding: 0.5rem 2rem;
     display: flex;
-    align-self: center;
-
-    &--correct {
-      transform: rotate(45deg);
+    justify-content: center;
+    &--secondary {
+      background-color: none;
+      border: 2px solid #00518f;
     }
-
-    &--incorrect {
-      max-width: 25rem;
-      max-height: 25rem;
+    &--primary {
+      background-color: #00518f;
     }
   }
-}
-button {
-  background: none;
+  &__link {
+    text-decoration: none;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 400;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    @include tablet {
+      font-size: 1rem;
+      line-height: 1.25rem;
+    }
+  }
+  &__button-container {
+    display: flex;
+    gap: 1rem;
+  }
 }
