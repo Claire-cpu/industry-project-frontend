@@ -3,6 +3,7 @@ import axios from "axios";
 import Timer from "../Timer/Timer";
 import "./QuestionCard.scss";
 import AnswerModal from "../../components/AnswerModal/AnswerModal";
+import Animation from "../Animation/Animation";
 
 const baseURL = import.meta.env.VITE_API_URL;
 
@@ -74,57 +75,60 @@ function QuestionCard({ score, updateScore }) {
   };
 
   return (
-    <section className={`question-card ${flipped ? "flipped" : ""}`}>
-      <div className="question-card__inner">
-        <div className="question-card__score">
-          <strong>Score:</strong> {score}
+    <>
+      <section className={`question-card ${flipped ? "flipped" : ""}`}>
+        <div className="question-card__inner">
+          <div className="question-card__score">
+            <strong>Score:</strong> {score}
+          </div>
+
+          {!flipped ? (
+            <div className="question-card__front">
+              <h2>Hint</h2>
+              <h3 className="question-card__hint">{currentQuestion?.hint}</h3>
+            </div>
+          ) : (
+            <div className="question-card__back">
+              <Timer duration={30} onEnd={() => alert("Time's Up!")} />
+              <p className="question-card__question">
+                {currentQuestion?.question}
+              </p>
+              <ul className="question-card__list">
+                {shuffledAnswers.map((answer, index) => (
+                  <li
+                    key={index}
+                    className={`question-card__item ${
+                      selected === index
+                        ? answer === currentQuestion.correct_answer
+                          ? "question-card__item--correct"
+                          : "question-card__item--incorrect"
+                        : ""
+                    } ${answered ? "question-card__item--disabled" : ""}`}
+                    onClick={() => handleSelect(index)}
+                  >
+                    {answer}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
-        {!flipped ? (
-          <div className="question-card__front">
-            <h2>Hint</h2>
-            <h3 className="question-card__hint">{currentQuestion?.hint}</h3>
-          </div>
-        ) : (
-          <div className="question-card__back">
-            <Timer duration={30} onEnd={() => alert("Time's Up!")} />
-            <p className="question-card__question">
-              {currentQuestion?.question}
-            </p>
-            <ul className="question-card__list">
-              {shuffledAnswers.map((answer, index) => (
-                <li
-                  key={index}
-                  className={`question-card__item ${
-                    selected === index
-                      ? answer === currentQuestion.correct_answer
-                        ? "question-card__item--correct"
-                        : "question-card__item--incorrect"
-                      : ""
-                  } ${answered ? "question-card__item--disabled" : ""}`}
-                  onClick={() => handleSelect(index)}
-                >
-                  {answer}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="question-card__next-wrapper">
+          <button className="question-card__next" onClick={handleNext}>
+            {flipped ? "Next" : "Ready?"}
+          </button>
+        </div>
+        {isCorrect !== null && (
+          <AnswerModal
+            isCorrect={isCorrect}
+            correctAnswer={correctAnswer}
+            onClose={handleCloseModal}
+          />
         )}
-      </div>
-
-      <div className="question-card__next-wrapper">
-        <button className="question-card__next" onClick={handleNext}>
-          {flipped ? "Next" : "Ready?"}
-        </button>
-      </div>
-      {isCorrect !== null && (
-        <AnswerModal
-          isCorrect={isCorrect}
-          correctAnswer={correctAnswer}
-          onClose={handleCloseModal}
-        />
-      )}
-    </section>
+      </section>
+      <Animation score={score} /> {/* Pass score to Animation */}
+    </>
   );
 }
 
