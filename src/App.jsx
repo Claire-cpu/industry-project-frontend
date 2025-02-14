@@ -1,11 +1,10 @@
 import "./App.scss";
-import AnswerModal from "./components/AnswerModal/AnswerModal";
+import QuestionCard from "./components/QuestionCard/QuestionCard";
 
 function App() {
-  let isCorrect = false;
   return (
     <>
-      <AnswerModal isCorrect={isCorrect} />
+      <QuestionCard />
     </>
   );
 }

@@ -7,7 +7,7 @@ import incorrect from "../../data/incorrect.json";
 
 import "./AnswerModal.scss";
 
-function AnswerModal({ isCorrect }) {
+function AnswerModal({ isCorrect, correctAnswer, onClose }) {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function AnswerModal({ isCorrect }) {
   return (
     <div className="modal">
       <div className="modal__content">
-        <button className="modal__close">
+        <button className="modal__close" onClick={onClose}>
           <img
             src={closeWindow}
             alt="close window"
@@ -35,7 +35,17 @@ function AnswerModal({ isCorrect }) {
             isCorrect ? "modal__rocket--correct" : "modal__rocket--incorrect"
           }`}
         />
-        <h3 className="modal__body">{message}</h3>
+        <div className="modal__body">
+          <h3 className="modal__header">{message}</h3>
+          {isCorrect ? (
+            <></>
+          ) : (
+            <>
+              <p className="modal__subheader">Correct Answer:</p>{" "}
+              <p className="modal__text">{correctAnswer}</p>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -25,15 +25,15 @@
 
     @include tablet {
       background: $gradient-bg;
-      width: 450px;
-      height: 600px;
-      border-radius: 16px;
+      width: 28.125rem;
+      min-height: 38.5rem;
+      border-radius: 1rem;
     }
   }
 
   &__close {
-    width: 24px;
-    height: 24px;
+    width: 1.5rem;
+    height: 1.5rem;
     align-self: flex-end;
     border: none;
     cursor: pointer;
@@ -42,17 +42,40 @@
   &__body {
     width: 100%;
     background: rgb(216, 243, 252);
-    border-radius: 16px;
+    border-radius: 1rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    padding: 2rem 1rem;
-    font-size: 1.125rem;
+    padding: 1rem;
+  }
+  &__header {
+    font-size: 1rem;
     line-height: 1.625rem;
     font-weight: 400;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     @include tablet {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
       line-height: 2rem;
+    }
+  }
+  &__subheader {
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    @include tablet {
+      font-size: 1.125rem;
+      line-height: 2rem;
+    }
+  }
+  &__text {
+    font-size: 0.875rem;
+    font-weight: 400;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    @include tablet {
+      font-size: 1rem;
+      line-height: 1.25rem;
     }
   }
 
@@ -65,8 +88,8 @@
     }
 
     &--incorrect {
-      max-width: 400px;
-      max-height: 400px;
+      max-width: 25rem;
+      max-height: 25rem;
     }
   }
 }
