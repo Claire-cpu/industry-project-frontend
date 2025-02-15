@@ -2,6 +2,7 @@ import { Carousel } from "antd";
 import CarouselItem from "../CarouselItem/CarouselItem";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "./CarouselComponent.scss";
 
 function CarouselComponent() {
   const [stories, setStories] = useState([]);
@@ -26,7 +27,7 @@ function CarouselComponent() {
   }
 
   return (
-    <Carousel autoplay>
+    <Carousel autoplay className="carousel">
       {stories.map((story) => {
         return (
           <div key={story.id}>

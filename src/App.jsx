@@ -18,6 +18,7 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/feedback" element={<FeedbackPage />} />

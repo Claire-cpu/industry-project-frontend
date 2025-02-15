@@ -7,10 +7,11 @@
   line-height: 160px;
   text-align: center;
   background-color: #ebf3fc;
-  margin: 0 1rem;
-  padding: 1rem 1rem;
+
+  padding: 2rem;
+
   @include desktop {
-    padding: 0 15rem;
+    padding: 2rem 15rem;
     display: flex;
     align-items: center;
   }
@@ -22,6 +23,10 @@
     object-fit: cover;
     @include tablet {
       max-height: 450px;
+    }
+    @include desktop {
+      width: 30vw;
+      height: 20vw;
     }
   }
   &__wrapper {
