@@ -69,6 +69,7 @@ button {
   justify-content: center;
   display: flex;
   cursor: pointer;
+  border: none;
   @include tablet {
     width: auto;
     font-size: $h3-font-size-td;

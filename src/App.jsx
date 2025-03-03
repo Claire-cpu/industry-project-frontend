@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Animation from "./components/Animation/Animation";
 import "./App.scss";
 import "./styles/partials/_globals.scss";
 import QuestionCard from "./components/QuestionCard/QuestionCard";
